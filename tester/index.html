@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API KTP Extractor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="file"] {
+      padding: 5px;
+    }
+    button {
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+    pre {
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pengujian API KTP Extractor</h1>
+    <form id="uploadForm">
+      <label for="ktpImage">Unggah Gambar KTP:</label>
+      <input type="file" id="ktpImage" name="ktpImage" accept="image/*" required>
+      <button type="submit">Upload dan Extract</button>
+    </form>
+
+    <div id="result" class="result" style="display: none;">
+      <h3>Hasil Ekstraksi:</h3>
+      <pre id="resultText"></pre>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
