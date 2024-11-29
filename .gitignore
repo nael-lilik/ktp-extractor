@@ -109,3 +109,6 @@ dist
 .serverless/
 .serverless_nextjs/
 serverless-state.json
+
+
+uploads/*
