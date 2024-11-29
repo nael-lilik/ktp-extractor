@@ -3,9 +3,14 @@ const multer = require('multer');
 const tesseract = require('tesseract.js');
 const path = require('path');
 const fs = require('fs');
+const cors = require('cors'); // Tambahkan ini
 
 const app = express();
 const PORT = 3000;
+
+// Aktifkan CORS
+app.use(cors()); // Izinkan semua origin
+// app.use(cors({ origin: 'http://localhost' })); // (Opsional) Izinkan origin tertentu
 
 // Konfigurasi multer untuk menyimpan file yang diunggah
 const upload = multer({
@@ -29,8 +34,6 @@ app.post('/extract-ktp', upload.single('ktpImage'), async (req, res) => {
     // Lakukan parsing data dari hasil OCR
     const parsedData = parseKTPData(text);
 
-    console.log(parsedData);
-    
     res.json({
       success: true,
       data: parsedData,
